@@ -56,6 +56,8 @@ Ce projet a été réalisé dans le cadre d'un **stage**, et répond à un cahie
   - **répond par une trame CAN** à la réception d'une commande UART spécifique.
 - Chaqu'un de l'équipe dispose de **son propre PC, sa carte et son dashboard**.
 
+<img width="1400" height="596" alt="image" src="https://github.com/user-attachments/assets/8133ae5f-6f0b-46e0-9075-142b20c77b53" />
+
 
 
 ```mermaid
