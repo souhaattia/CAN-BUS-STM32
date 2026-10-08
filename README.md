@@ -57,7 +57,6 @@ Ce projet a été réalisé dans le cadre d'un **stage**, et répond à un cahie
   - **répond par une trame CAN** à la réception d'une commande UART spécifique.
 - Chaqu'un de l'équipe dispose de **son propre PC, sa carte et son dashboard**.
 
-<img width="1400" height="596" alt="image" src="https://github.com/user-attachments/assets/70a8aeb9-6406-4a1c-ada8-ad0fb2308d1c" />
 
 
 ```mermaid
@@ -232,54 +231,40 @@ sequenceDiagram
 +--------+---------+-----------------------+
 ```
 
-<img width="799" height="1027" alt="design_uart_frame (1)" src="https://github.com/user-attachments/assets/914d7635-af1c-4923-9ef0-da3892dc2023" />
 
 ### Machine d'états de réception (STM32)
 
 La réception est traitée **octet par octet** dans `HAL_UART_RxCpltCallback`. Le SOF permet de **se resynchroniser** automatiquement en cas d'octet perdu ou de démarrage en milieu de flux.
 
-```mermaid
-stateDiagram-v2
-    [*] --> WAIT_FOR_SOF
-    WAIT_FOR_SOF --> WAIT_FOR_CMD : octet == 0xA5
-    WAIT_FOR_SOF --> WAIT_FOR_SOF : autre octet (ignoré)
-    WAIT_FOR_CMD --> WAIT_FOR_DATA1 : octet CMD reçu
-    WAIT_FOR_DATA1 --> WAIT_FOR_DATA2 : data[0]
-    WAIT_FOR_DATA2 --> WAIT_FOR_DATA3 : data[1]
-    WAIT_FOR_DATA3 --> WAIT_FOR_DATA4 : data[2]
-    WAIT_FOR_DATA4 --> WAIT_FOR_SOF : data[3] → trame complète → traitement
-```
 
-Côté PC, le thread `SerialReader` applique la même logique : il recherche `0xA5`, extrait 6 octets, décode `CMD` et la valeur `uint32` (`struct.unpack('>I', ...)`).
 
+Côté PC, le thread `SerialReader` applique la même logique : il recherche `0xA5`, extrait 6 octets, décode `CMD` et la valeur `uint32`
 ---
+<img width="799" height="1027" alt="design_uart_frame (1)" src="https://github.com/user-attachments/assets/914d7635-af1c-4923-9ef0-da3892dc2023" />
+
 
 ## 🆔 Identifiants CAN et commandes
 
 ### Trames CAN → UART (STM32 → PC)
 
-| ID CAN | CMD UART | Signification | Décodage côté dashboard |
-|---|---|---|---|
-| `0x406` | `0x30` | Vitesse moteur (rpm) | octet 0 |
-| `0x55C` | `0x31` | Pression (bar) | octet 3 |
-| `0x456` | `0x33` | Température (°C) — émise périodiquement (500 ms) | octet 3 |
-| `0x679` | `0x88` | Notification ABS (bascule actif/inactif) | événement |
-| `0x390` | `0x10` | Débit d'air (g/s) | octet 3 |
-| `0x221` | `0x11` | Batterie (V) | octet 3 |
-| `0x790` | `0x12` | Notification porte droite | événement |
-| `0x222` | `0x13` | Notification éclairage extérieur | événement |
-| `0x401` | `0x35` | Notification vitre gauche | événement |
-| `0x402` | `0x14` | Notification vitre droite (écho de la commande) | événement |
+| ID CAN | CMD UART | Signification | 
+|---|---|---|
+| `0x406` | `0x30` | Vitesse moteur (rpm) |
+| `0x55C` | `0x31` | Pression (bar) | 
+| `0x456` | `0x33` | Température (°C) — émise périodiquement (500 ms) | 
+| `0x679` | `0x88` | Notification ABS (bascule actif/inactif) |
+| `0x390` | `0x10` | Débit d'air (g/s) | 
+| `0x221` | `0x11` | Batterie (V) |
+| `0x790` | `0x12` | Notification porte droite |
+| `0x222` | `0x13` | Notification éclairage extérieur |
+| `0x401` | `0x35` | Notification vitre gauche 
+| `0x402` | `0x14` | Notification vitre droite (écho de la commande) | 
 
 ### Commandes UART → CAN (PC → STM32)
 
 | CMD UART | Action | Trame CAN émise |
 |---|---|---|
 | `0x87` | Actionner la vitre droite | ID `0x402`, données `01 02 03 04` |
-| `0x89` | Actionner la vitre gauche | *à implémenter* |
-| `0x90` | Déclencher l'ABS (test) | *à implémenter* |
-| `0x91` | Ouvrir la porte gauche | *à implémenter* |
-
 > Chaque nœud possède ses propres identifiants : seule la table des IDs du nœud considéré est traitée par son firmware.
 
 ---
@@ -341,31 +326,12 @@ Application **PyQt5** au style « cockpit » sombre :
 
 ---
 
-## 🚀 Démarrage rapide
-
 ### Prérequis
 
 - STM32CubeIDE
 - Python ≥ 3.8
 
-### Firmware
 
-1. Cloner le dépôt : `git clone https://github.com/<votre-compte>/CAN-BUS-STM32.git`
-2. Ouvrir STM32CubeIDE → *File → Import → Existing Projects into Workspace*.
-3. Compiler et flasher chaque carte.
-4. Câbler le bus : CANH/CANL de chaque MCP2551 en parallèle, **120 Ω à chaque extrémité**.
-
-### Dashboard
-
-```bash
-cd Dashboard
-pip install -r requirements.txt   # pyserial, PyQt5
-python can_dashboard.py
-```
-
-Sélectionner le port COM de la carte (115 200 bauds), puis **CONNECT**.
-
----
 
 ## 📁 Structure du dépôt
 
