@@ -57,6 +57,9 @@ Ce projet a été réalisé dans le cadre d'un **stage**, et répond à un cahie
   - **répond par une trame CAN** à la réception d'une commande UART spécifique.
 - Chaqu'un de l'équipe dispose de **son propre PC, sa carte et son dashboard**.
 
+<img width="1400" height="596" alt="image" src="https://github.com/user-attachments/assets/70a8aeb9-6406-4a1c-ada8-ad0fb2308d1c" />
+
+
 ```mermaid
 flowchart LR
     subgraph BUS["Bus CAN — 250 kbit/s (CANH / CANL, 2 × 120 Ω)"]
@@ -81,7 +84,6 @@ flowchart LR
 *(Chaque nœud dispose de sa liaison UART vers un PC ; seuls deux sont représentés.)*
 
 [Cablage](Images/cablage.jpg)
-<img width="1600" height="796" alt="image" src="https://github.com/user-attachments/assets/70a8aeb9-6406-4a1c-ada8-ad0fb2308d1c" />
 
 ---
 
