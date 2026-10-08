@@ -80,7 +80,7 @@ flowchart LR
 
 *(Chaque nœud dispose de sa liaison UART vers un PC ; seuls deux sont représentés.)*
 
-<img width="900" height="900" alt="image" src="https://github.com/user-attachments/assets/54030c45-922a-4775-b66d-0d8601d07f8a" />
+<img width="900" height="1200" alt="image" src="https://github.com/user-attachments/assets/fd885882-2a2c-41d5-87f1-8f02f79e98ce" />
 
 ---
 
@@ -90,7 +90,7 @@ flowchart LR
 |---|---|---|
 | STM32 **NUCLEO-G474RE** | 2 | Nœuds CAN (FDCAN) utilisés en CAN classique |
 | STM32 **NUCLEO-F429ZI** | 1 | Nœud CAN |
-| STM32 **F476** *(à vérifier : L476 ?)* | 2 | Nœuds CAN |
+| STM32 **F476** | 2 | Nœuds CAN |
 | Transceiver CAN **MCP2551** | 1 par nœud | Interface physique CAN (CANH/CANL) |
 | Résistances de terminaison 120 Ω | 2 | Adaptation d'impédance aux extrémités du bus |
 | **PEAK-CAN USB** (PCAN-USB) | 1 | Sniffer / analyse des trames CAN |
@@ -295,8 +295,7 @@ Application **PyQt5** au style « cockpit » sombre :
 - **Journal des trames** RX / TX horodaté ;
 - Connexion série configurable (port, baud) avec détection automatique des ports.
 
-> 📸 *Capture d'écran : `![Dashboard](Images/dashboard.png)`*
-
+Images/Dashboard.jpg
 ---
 
 ## 📊 Résultats
@@ -309,7 +308,7 @@ Application **PyQt5** au style « cockpit » sombre :
 ### 🎥 Démonstration
 
 > *Ajouter ici la vidéo (lien YouTube / GIF) et les captures PCAN-View et Saleae :*
-> `![PCAN-View](Images/pcanview.png)` · `![Saleae](Images/saleae_uart.png)` · `![Video](https://...)`
+[PCAN-View](Images/pcanview.png) · [Saleae](Images/saleae_uart.png) · [Video](Videos)
 
 ---
 
@@ -387,8 +386,7 @@ CAN-BUS-STM32/
 ## 👩‍💻 Auteur
 
 **Souha** — étudiante ingénieure, 3ᵉ année, systèmes embarqués
-📍 Tunisie · 🔎 À la recherche d'un **stage PFE en systèmes embarqués**
-🔗 LinkedIn : *<lien>* · ✉️ Email : *<adresse>*
+🔗 LinkedIn : https://www.linkedin.com/in/souha-attia-171b0135a/ · ✉️ Email : souhattia@gmail.com
 
 ---
 
