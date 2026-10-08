@@ -25,7 +25,6 @@ Réseau de **5 nœuds STM32** communiquant sur un **bus CAN** à la manière des
 10. [Résultats](#-résultats)
 11. [Problèmes rencontrés et solutions](#-problèmes-rencontrés-et-solutions)
 12. [Limitations connues et améliorations](#-limitations-connues-et-améliorations)
-13. [Démarrage rapide](#-démarrage-rapide)
 14. [Structure du dépôt](#-structure-du-dépôt)
 15. [Auteur](#-auteur)
 16. [Licence](#-licence)
