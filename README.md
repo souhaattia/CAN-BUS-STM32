@@ -56,6 +56,7 @@ Ce projet a été réalisé dans le cadre d'un **stage**, et répond à un cahie
   - fait office de **pont CAN ↔ UART** : toutes les trames CAN reçues (et émises) sont retransmises au PC ;
   - **répond par une trame CAN** à la réception d'une commande UART spécifique.
 - Chaqu'un de l'équipe dispose de **son propre PC, sa carte et son dashboard**.
+<img width="1600" height="796" alt="image" src="https://github.com/user-attachments/assets/70a8aeb9-6406-4a1c-ada8-ad0fb2308d1c" />
 
 ```mermaid
 flowchart LR
