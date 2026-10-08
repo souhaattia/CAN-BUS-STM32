@@ -295,7 +295,7 @@ Application **PyQt5** au style « cockpit » sombre :
 - **Journal des trames** RX / TX horodaté ;
 - Connexion série configurable (port, baud) avec détection automatique des ports.
 
-Images/Dashboard.jpg
+[Dashboard](Images/Dashboard.jpg)
 ---
 
 ## 📊 Résultats
@@ -307,7 +307,7 @@ Images/Dashboard.jpg
 
 ### 🎥 Démonstration
 
-> *Ajouter ici la vidéo (lien YouTube / GIF) et les captures PCAN-View et Saleae :*
+
 [PCAN-View](Images/pcanview.png) · [Saleae](Images/saleae_uart.png) · [Video](Videos)
 
 ---
