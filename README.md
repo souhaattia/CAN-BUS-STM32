@@ -80,7 +80,8 @@ flowchart LR
 
 *(Chaque nœud dispose de sa liaison UART vers un PC ; seuls deux sont représentés.)*
 
-Images/cablage.jpg
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/54030c45-922a-4775-b66d-0d8601d07f8a" />
+
 ---
 
 ## 🔧 Matériel
