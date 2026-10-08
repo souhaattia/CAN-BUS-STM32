@@ -232,11 +232,7 @@ sequenceDiagram
 +--------+---------+-----------------------+
 ```
 
-| Champ | Taille | Description |
-|---|---|---|
-| `SOF` | 1 octet | *Start Of Frame* = `0xA5`, marque le début d'une trame |
-| `CMD` | 1 octet | Identifie la donnée / la commande (voir tableau ci-dessous) |
-| `DATA` | 4 octets | Payload : les 4 premiers octets de la trame CAN, transmis en big-endian |
+<img width="799" height="1027" alt="design_uart_frame (1)" src="https://github.com/user-attachments/assets/914d7635-af1c-4923-9ef0-da3892dc2023" />
 
 ### Machine d'états de réception (STM32)
 
