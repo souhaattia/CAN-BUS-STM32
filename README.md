@@ -80,8 +80,7 @@ flowchart LR
 
 *(Chaque nœud dispose de sa liaison UART vers un PC ; seuls deux sont représentés.)*
 
-> 🖼 *Ajouter ici le schéma de câblage : `![Câblage](Images/cablage.png)`*
-
+Images/cablage.jpg
 ---
 
 ## 🔧 Matériel
@@ -97,7 +96,6 @@ flowchart LR
 | **Analyseur logique Saleae** | 1 | Analyse des signaux (CAN / UART) — *l'appareil « type oscilloscope » numérique* |
 | Fils de câblage | — | Liaison du bus et des UART |
 
-> 📸 *Photos du montage : `Images/materiel.jpg`, `Images/cablage.jpg`*
 
 ---
 
